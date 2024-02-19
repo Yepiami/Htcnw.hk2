@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Layout Trang Web</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Times New Roman", Times, serif;
+    }
+    .container {
+        width: 960px;
+        margin: 0 auto; /* Căn giữa theo chiều ngang */
+    }
+    footer {
+        clear: both; /* Xóa float */
+        background-color: #dbf209; /* Màu nền của section */
+        padding: 10px; /* Khoảng cách giữa nội dung và viền */
+        box-sizing: border-box; /* Đảm bảo padding không tăng kích thước ngoài của phần tử */
+    }
+    footer p {
+        display: inline-block;/* Hiển thị theo hàng ngang */
+        margin-right: 120px; /* Khoảng cách giữa các mục */
+    }
+
+    footer p:last-child {
+        margin-right: 0; /* Xóa khoảng cách giữa mục cuối cùng và mục trước nó */
+    }
+    
+    section {
+        width: 70%;
+        float: left;
+        background-color: #9ff8f8; /* Màu nền của section */
+        padding: 20px;/* Khoảng cách giữa nội dung và viền */
+        box-sizing: border-box;
+    }
+    aside {
+        width: 30%;
+        float: left;
+        background-color: #d0d0d0; /* Màu nền của aside */
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: #ffffff; /* Màu nền của aside */
+    }
+    aside img {
+        max-width: 100%; /* Đảm bảo hình ảnh không vượt quá khung của aside */
+        height: auto; /* Đảm bảo tỉ lệ khung hình không bị thay đổi */
+        display: block; /* Loại bỏ khoảng trắng dưới ảnh */
+        margin: 0 auto; /* Căn giữa ảnh */
+        transition: transform 0.5s ease; /* Hiệu ứng phóng to khi rê chuột vào ảnh */
+    }
+    aside img:hover {
+        transform: rotate(10deg); /* Phóng to ảnh lên 1.1 lần */
+    }
+    aside h2{
+        text-align: center; /* Căn giữa tiêu đề */
+        font-size: 30px;
+        color: #ff0000; /* Màu chữ đỏ */
+        font-style: italic;
+    }
+    nav {
+        width: 100%;
+        background-color: #f4b9f4; /* Màu nền của nav */
+        padding: 20px;
+        box-sizing: border-box; /* Đảm bảo padding không tăng kích thước ngoài của phần tử */
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex; /* Sử dụng flexbox để hiển thị các mục theo hàng ngang */
+        align-items: center; /* Căn giữa các mục theo chiều dọc */
+    }
+    nav ul li {
+        margin-right: 20px; /* Khoảng cách giữa các mục menu */
+    }
+    nav ul li a {
+        color: #007bff; /* Màu chữ xanh dương đậm */
+        font-size: 25px; /* Cỡ chữ 40 */
+        text-decoration: none; /* Loại bỏ gạch chân */
+    }
+    nav ul li.form-item {
+
+        margin-left: auto; /* Di chuyển phần tìm kiếm và nút Go vào phía bên phải */
+        display: flex; /* Sử dụng flexbox để sắp xếp nút Go và ô tìm kiếm */
+        align-items: center; /* Căn giữa theo chiều dọc */
+    }
+    nav span {
+        color: rgb(251, 2, 2); /* Màu chữ trắng */
+        font-size: 25px; /* Cỡ chữ 20 */
+    }
+    nav input[type="text"] {
+        padding: 10px;/* Kích thước ô tìm kiếm */
+        margin-right: 5px;/* Khoảng cách giữa ô tìm kiếm và nút Go */
+        height: 15px; /* Chiều cao ô tìm kiếm */
+        font-size: 20px; /* Cỡ chữ 20 */
+
+    }
+    nav input[type="submit"] {
+        padding: 10px;
+        cursor: pointer;
+        background-color: rgb(35, 136, 252); /* Màu nền xanh dương sáng cho nút Go */
+        border: none; /* Loại bỏ viền */
+        color: white; /* Màu chữ trắng */
+        font-size: 20px; /* Cỡ chữ 20 */
+    
+    }
+    header {
+        width: 100%;
+        float: left;
+    }
+    li a {
+        text-decoration: none; /* Loại bỏ gạch chân */
+        color: black; /* Màu chữ đen */
+    }
+    li:hover > a {
+        color: rgb(234, 238, 156); /* Màu chữ đỏ khi rê chuột vào */
+        font-weight: bold; /* In đậm chữ khi rê chuột vào */
+    }
+    .Section_h2 {
+        color: red;
+        font-size: 30px;
+        text-align: center;
+
+    }
+    p {
+        font-size: 19px;
+        text-indent: 1cm;
+    }
+    .Section_Content, .Section_Form {
+        width: 50%;
+        box-sizing: border-box; /* Đảm bảo padding không tăng kích thước ngoài của phần tử */
+  
+    }
+
+    .Section_Content {
+        float: left; /* Nội dung sẽ nằm bên trái */
+        padding: 10px; /* Khoảng cách giữa nội dung và viền */
+    }
+
+    .Section_Form {
+        border: 1px solid black;
+        border-radius: 10px; /* Thu nhỏ viền lại */
+        padding: 10px; /* Khoảng cách giữa form và viền */
+        display: flex; /* Sử dụng flexbox để căn giữa form */
+        flex-direction: column; /* Xếp các phần tử con theo chiều dọc */
+        margin-left: 10px; /* Đặt cách lề bên trái là 10px */
+        margin-right: 10px; /* Đặt cách lề bên phải là 10px */
+        margin-top: 60px; /* Đưa form xuống dưới 10px */
+    }
+
+    .border-wrapper {
+        border: 1px solid black;
+        border-radius: 10px; /* Thu nhỏ viền lại */
+        padding: 10px; /* Khoảng cách giữa form và viền */
+    }
+
+    .border-title {
+        border-bottom: 1px solid black; /* Tạo đường border dưới */
+        font-weight: bold; /* In đậm tiêu đề */
+        padding-bottom: 5px; /* Khoảng cách giữa tiêu đề và nội dung */
+        margin-bottom: 10px; /* Khoảng cách giữa tiêu đề và nội dung */
+    }
+
+    .name,
+    .email,
+    .gender,
+    .button {
+        margin-bottom: 20px; /* Tạo khoảng cách giữa các phần tử con */
+    }
+    .button {
+        display: flex; /* Sử dụng flexbox để căn giữa nút submit và nút reset */
+        justify-content: flex-end; /* Căn nút submit và nút reset về phía bên phải */
+
+    }
+    .button input[type="submit"],
+    .button input[type="reset"] {
+        margin-right:55px;
+    
+    }
+</style>
+
+
+
+</head>
+<body>
+
+<div class="container">
+    <nav>
+        <ul class="menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Contacts</a></li>
+            <li class="form-item">
+                <form action="#" method="get">
+                    <span>Search:</span>
+                    <input type="text" name="search" placeholder="Search here...">
+                    <input type="submit" value="Go">
+                </form>
+            </li>
+        </ul>
+    </nav>
+
+    <header>
+        <img src="../image/9e1880a1-f903-4e4e-bad7-1f1f9dfa3934.jpg" alt="">
+    </header>
+
+    <section>
+        <h2 class="Section_h2">Introduction - Contacts</h2>
+        <div class="Section_Content">
+            <p> 
+                Nha Trang Bay covers an area of ​​about 507 km² including 19 islands, large and small, of which Hon Tre is the largest island, with an area of ​​32.5 km²; The smallest island, Hon No, is only about 4 hectares. The bay has two distinct seasons. The dry season lasts from January to August, the rainy season lasts from September to December; The average annual temperature is 26 degrees Celsius; hottest 39 degrees C, coldest 14.4 degrees C. In terms of ecology, Nha Trang Bay is one of the rare natural patterns of the system of pools and bays in the world because it has most of the ecosystems.
+            </p>
+         </div>
+         <div class="Section_Form">
+            <div class="border-wrapper">
+                <div class="border-title">Information</div> <!-- Border title -->
+                <form action="#" method="post">
+                    <div class="name">
+                        <label for="fname">First Name:</label><br>
+                        <input type="text" id="fname" name="fname"><br>
+                    </div>
+                    
+                    <div class="email">
+                        <label for="email">Email:</label><br>
+                        <input type="text" id="email" name="email"><br>
+                    </div>
+                    
+                    <div class="gender"><br>
+                        <label>Gender:</label>
+                        <label for="male">Male</label>
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="female">Female
+                        <input type="radio" id="female" name="gender" value="female"></label><br>
+                    </div>
+                    
+                    <div class="button">
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Reset">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <aside>
+        <h2>View</h2>
+        <img src="..//image/60da0299-9ee6-40c8-bb2a-6cff5147dbfb.jpg" alt="">
+        <h2>Restaurant</h2>
+        <img src="..//image/a1fad891-afa8-4faa-a5b2-29d1e4543f53.jpg" alt="">
+        <h2>Conference Room</h2>
+        <img src="..//image/c8d2593b-aa92-43eb-b002-eda0241d22de.jpg" alt="">
+    </aside>
+
+    <footer>
+            <p>22691271- Trần Phạm Bảo Khang</p>
+            <p>DHKTPM18CTT - Khoa Công nghệ thông tin</p>
+    </footer>
+</div>
+
+</body>
+</html>
