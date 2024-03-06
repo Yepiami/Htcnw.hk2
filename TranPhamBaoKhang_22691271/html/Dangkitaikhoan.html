@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../boostrap/css/style.css">
+    <script src="../boostrap/js/script.js"></script>
+</head>
+<body>
+    <h2 align="center">Đăng kí tài khoản</h2>
+    <form name="form1" onsubmit="return SubmitForm();" method="post">
+        <div>
+            <label for="txtDN" class="title">Ten dang nhap:</label>
+            <input type="text" id=txtDN onblur="return KiemTraTenDN();" name="txtdn" size="30" placeholder="txtDN">
+            <span id="tendn">*</span>
+        </div>
+        <div>
+            <label for="txtMK" class="title">Mat khau:</label>
+            <input type="text" id=txtMK onblur="return KiemTraPassWord();" name="txtMK" size="30" placeholder="txtMK">
+            <span id="mk">*</span>
+        </div>
+        <div>
+            <label for="txtXNMK" class="title">Nhap lai mat khau</label>
+            <input type="password" id="txtXNMK" onblur="return KiemTraXacNhanPassWord();" name="txtXNMK" size="30" placeholder="txtXNMK">
+            <span id="xnmk">*</span>
+
+        </div>
+        <h5 align="center">Thong tin ca nhan</h5>
+        <div>
+            <label for="txtName" class="title">Ho va Ten:</label>
+            <input type="text" id="txtName" onblur="" name="txtName" size="30" placeholder="txtName">
+            <span id="hoten">* bat buoc</span>
+        </div>
+        <div>
+            <label for="txtNS" class="title">Ngay Sinh</label>
+            <input type="date" id="txtNS" onblur="return KiemTraNgaySinh();" name="txtNS" size="30" placeholder="txtNS">
+            <span id="ngaysinh"></span>
+        </div>
+        <div class="readio-buttons">
+            <label class="title">Gioi tinh:</label>
+            <input type="radio" name="gender" id="male" value="M" checked>
+            <label for="male">Nam</label>
+            <input type="radio"  name="gender" id="female" value="F">
+            <label for="female">Nu</label><br>
+        </div>
+        <div>
+            <label for="txtDC" class="title">Dia Chi</label>
+            <input type="text" name="txtDC" id="txtDC" size="30" placeholder="txtDC">
+            <span id="diachi"></span>
+        </div>
+        <div>
+            <label for="txtDT" class="title">Dien Thoai</label>
+            <input type="text" name="txtDT" id="txtDT" size="30" placeholder="txtDT">
+            <span id="dienthoai">Phai la so</span>>
+        </div>
+        <div>
+            <label for="txtEmail" class="title">Dia Chi</label>
+            <input type="email" name="txtEmail" id="txtEmail" size="30" placeholder="txtEmail">
+            <span id="email">Nhap dung dia chi email</span>
+        </div>
+        <div class="submit">
+            <input type="submit" value="Dang ki" id="submit">
+            <input type="reset" value="Huy" id="submit">
+        </div>
+    </form>
+</body>
+</html>
